@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instituto Educacional Yahweh Jireh</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --azul:    #1a2a5e;
+  --azul-m:  #2d4080;
+  --azul-c:  #4a6abf;
+  --branco:  #ffffff;
+  --off:     #f4f6fb;
+  --preto:   #0d0d0d;
+  --verde:   #16a34a;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--preto);
+  background: var(--branco);
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  background: var(--azul);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-brand img {
+  height: 42px; width: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-brand-text .sup {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.nav-brand-text .main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+}
+
+.nav-links a {
+  display: block;
+  padding: 8px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  border-radius: 5px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.ativo {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ══════════════════════════
+   HERO — texto gigante
+══════════════════════════ */
+.hero {
+  background: var(--azul);
+  padding: 56px 32px 0;
+  overflow: hidden;
+}
+
+.hero-bottom {
+  padding-bottom: 32px;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.hero-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b8ccff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 6px 16px;
+  display: inline-block;
+}
+
+.hero-desc-top {
+  max-width: 300px;
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.7;
+  text-align: right;
+}
+
+/* Título massivo */
+.hero-title-wrap {
+  position: relative;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.hero-title .blue {
+  color: #b8ccff;
+  font-size: 0.5em;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 8px;
+}
+
+/* Logo flutuando sobre o título */
+.hero-logo-float {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  min-width: 220px;
+  min-height: 220px;
+}
+
+.hero-logo-float img {
+  width: 220px;
+  height: 220px;
+  min-width: 220px;
+  min-height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(0 8px 30px rgba(0,0,0,0.3));
+}
+
+/* Linha de info abaixo do título */
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 28px;
+}
+
+.hero-bottom-left {
+  font-size: 0.88rem;
+  color: #fff;
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
+
+.pill {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.pill.verde {
+  background: rgba(22,163,74,0.2);
+  border-color: rgba(22,163,74,0.5);
+  color: #4ade80;
+}
+
+/* Barra de stats */
+.stats-bar {
+  background: var(--azul-m);
+  border-top: 3px solid rgba(255,255,255,0.12);
+  margin-top: 0;
+}
+
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat {
+  padding: 20px 16px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.stat:last-child { border-right: none; }
+
+.stat .n {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat .l {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ══════════════════════════
+   SEÇÕES
+══════════════════════════ */
+.sec { padding: 80px 32px; }
+.sec-alt { background: var(--off); }
+.sec-dark { background: var(--azul); }
+
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+
+.sec-kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--azul-c);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sec-dark .sec-kicker { color: #b8ccff; }
+
+.sec h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--preto);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+
+.sec-dark h2 { color: #fff; }
+
+.sec-desc {
+  font-size: 1rem;
+  color: var(--preto);
+  max-width: 560px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+.sec-dark .sec-desc { color: #fff; }
+
+.linha {
+  width: 40px; height: 3px;
+  background: var(--azul-c);
+  border-radius: 2px;
+  margin-bottom: 48px;
+}
+
+/* ══════════════════════════
+   SOBRE — layout assimétrico
+══════════════════════════ */
+.sobre-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.sobre-texto p {
+  font-size: 1.02rem;
+  color: var(--preto);
+  line-height: 1.9;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.sobre-texto p strong {
+  color: var(--azul);
+  font-weight: 800;
+}
+
+.sobre-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dado {
+  border: 1px solid #d0d8ee;
+  border-left: 4px solid var(--azul-c);
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: var(--branco);
+}
+
+.dado.ok { border-left-color: var(--verde); }
+
+.dado .r {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--azul-c);
+  margin-bottom: 3px;
+}
+
+.dado.ok .r { color: var(--verde); }
+
+.dado .v {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--preto);
+}
+
+.ativo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--verde);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ativo-badge::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--verde);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════
+   NÍVEIS — cards bold
+══════════════════════════ */
+.niveis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.nivel {
+  background: var(--branco);
+  border: 1px solid #d0d8ee;
+  border-top: 5px solid var(--azul);
+  border-radius: 10px;
+  padding: 32px 26px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.nivel:hover {
+  box-shadow: 0 12px 40px rgba(26,42,94,0.12);
+  transform: translateY(-5px);
+}
+
+.nivel-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--azul-c);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.nivel h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--preto);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.nivel-faixa {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--azul-c);
+  background: #e8edf8;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.nivel p {
+  font-size: 0.93rem;
+  color: var(--preto);
+  line-height: 1.8;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.nivel ul {
+  list-style: none;
+  border-top: 1px solid #d0d8ee;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nivel ul li {
+  font-size: 0.88rem;
+  color: var(--preto);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.nivel ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--azul-c);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ══════════════════════════
+   VALORES
+══════════════════════════ */
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.valor {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 28px 22px;
+  transition: background 0.2s;
+}
+
+.valor:hover { background: rgba(255,255,255,0.13); }
+
+.valor-icone {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.valor h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+
+.valor p {
+  font-size: 0.9rem;
+  color: #fff;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* ══════════════════════════
+   CONTATO
+══════════════════════════ */
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.contato-card {
+  background: var(--branco);
+  border: 1px solid #d0d8ee;
+  border-radius: 10px;
+  padding: 26px 22px;
+  transition: box-shadow 0.2s;
+}
+
+.contato-card:hover {
+  box-shadow: 0 8px 28px rgba(26,42,94,0.1);
+}
+
+.contato-r {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--azul-c);
+  margin-bottom: 12px;
+}
+
+.contato-card p {
+  font-size: 0.95rem;
+  color: var(--preto);
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+.contato-card a {
+  font-size: 0.95rem;
+  color: var(--azul);
+  font-weight: 700;
+  text-decoration: none;
+  word-break: break-word;
+  display: block;
+  line-height: 1.6;
+}
+
+.contato-card a:hover {
+  color: var(--azul-c);
+  text-decoration: underline;
+}
+
+.contato-cnpj {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #555;
+  font-weight: 600;
+}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer {
+  background: var(--preto);
+  padding: 36px 32px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img {
+  height: 40px; width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-brand span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footer-info {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-align: right;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media (max-width: 960px) {
+  .hero-logo-float img { width: 140px; height: 140px; }
+  .hero-title { letter-spacing: -1px; }
+  .hero-top { flex-direction: column; gap: 12px; }
+  .hero-desc-top { text-align: left; max-width: 100%; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero-pills { justify-content: flex-start; }
+
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: none; }
+
+  .sobre-layout { grid-template-columns: 1fr; gap: 36px; }
+  .niveis-grid { grid-template-columns: 1fr; }
+  .valores-grid { grid-template-columns: 1fr 1fr; }
+  .contato-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .footer-info { text-align: left; }
+}
+
+@media (max-width: 600px) {
+  .nav-inner { padding: 0 16px; }
+  .nav-brand-text .sup { display: none; }
+  .nav-links a { padding: 7px 8px; font-size: 0.62rem; }
+
+  .hero { padding: 36px 20px 0; }
+  .hero-title { letter-spacing: -0.5px; }
+  .hero-logo-float img { width: 140px; height: 140px; }
+  .hero-title-wrap { flex-direction: row; gap: 20px; align-items: center; }
+  .hero-title { font-size: clamp(2rem, 9vw, 3.5rem); letter-spacing: -1px; }
+
+  .sec { padding: 56px 20px; }
+  .sec h2 { font-size: 1.8rem; }
+
+  .valores-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .contato-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .contato-card { padding: 18px 14px; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 380px) {
+  .nav-links a { padding: 6px 6px; font-size: 0.58rem; }
+  .contato-grid { grid-template-columns: 1fr; }
+  .valores-grid { grid-template-columns: 1fr; }
+  .hero-title-wrap { flex-direction: column; }
+  .hero-logo-float img { width: 110px; height: 110px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img id="logo-nav" src="logo.png" alt="Logo">
+      <div class="nav-brand-text">
+        <span class="sup">Instituto Educacional</span>
+        <span class="main">Yahweh Jireh</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">A Instituição</a></li>
+      <li><a href="#ensino">Ensino</a></li>
+      <li><a href="#valores">Valores</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+
+    <div class="hero-top">
+      <span class="hero-tag">Instituto Educacional Yahweh Jireh — São Luís, MA</span>
+      <p class="hero-desc-top">Promovemos o desenvolvimento humano e a inclusão social por meio da educação, cultura e esporte desde 2014.</p>
+    </div>
+
+    <div class="hero-title-wrap">
+      <div class="hero-logo-float">
+        <img id="logo-hero" src="logo.png" alt="Instituto Educacional Yahweh Jireh">
+      </div>
+      <h1 class="hero-title">
+        EDUCAÇÃO<br>+ SOCIAL
+        <span class="blue">QUE TRANSFORMA VIDAS.</span>
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-bottom-left">
+        Da creche ao ensino fundamental — atendemos crianças em São Luís com compromisso pedagógico, responsabilidade social e transparência institucional.
+      </p>
+      <div class="hero-pills">
+        <span class="pill verde">● CNPJ Ativo</span>
+        <span class="pill">Fundado em 2014</span>
+        <span class="pill">São Luís – MA</span>
+        <span class="pill">Creche ao Fund. II</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><span class="n">2014</span><span class="l">Fundação</span></div>
+    <div class="stat"><span class="n">3</span><span class="l">Níveis de ensino</span></div>
+    <div class="stat"><span class="n">Ativa</span><span class="l">Situação CNPJ</span></div>
+    <div class="stat"><span class="n">MA</span><span class="l">São Luís – Maranhão</span></div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre" class="sec">
+  <div class="sec-inner">
+    <span class="sec-kicker">A Instituição</span>
+    <h2>Quem somos</h2>
+    <div class="linha"></div>
+    <div class="sobre-layout">
+      <div class="sobre-texto">
+        <p>O <strong>Instituto Educacional Yahweh Jireh</strong> é uma associação privada sem fins lucrativos, fundada em janeiro de 2014, com sede em São Luís – MA, que promove o <strong>desenvolvimento humano e a inclusão social</strong>. Atua nas áreas de educação e assistência social, utilizando o esporte como ferramenta de inclusão e transformação.</p>
+        <p>O instituto aplica <strong>políticas públicas e práticas inovadoras</strong> voltadas ao desenvolvimento social, inclusão, educação, saúde e cultura para comunidades vulneráveis — atuando no fortalecimento da cidadania, muitas vezes em parceria com o setor público e privado, por meio de projetos de impacto real.</p>
+        <p>A instituição mantém a <strong>Creche e Escola Sonho de Criança</strong>, onde desenvolvemos atividades pedagógicas, culturais e de defesa dos direitos sociais da criança, formando cidadãos com base em valores sólidos e respeito à diversidade.</p>
+        <p>Operamos com <strong>plena regularidade jurídica</strong>, situação cadastral ativa perante a Receita Federal e total alinhamento às diretrizes nacionais da educação básica.</p>
+      </div>
+      <div class="sobre-dados">
+        <div class="dado ok">
+          <span class="r">CNPJ Matriz</span>
+          <span class="v">19.076.369/0001-06</span>
+          <span class="ativo-badge">Situação Ativa – Receita Federal</span>
+        </div>
+        <div class="dado">
+          <span class="r">Data de Fundação</span>
+          <span class="v">Janeiro de 2014</span>
+        </div>
+        <div class="dado">
+          <span class="r">Natureza Jurídica</span>
+          <span class="v">Associação Privada (399-9)</span>
+        </div>
+        <div class="dado">
+          <span class="r">Localização</span>
+          <span class="v">São Luís – Maranhão – Brasil</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENSINO -->
+<section id="ensino" class="sec sec-alt">
+  <div class="sec-inner">
+    <span class="sec-kicker">Estrutura Pedagógica</span>
+    <h2>Níveis de Ensino</h2>
+    <p class="sec-desc">Da creche ao ensino fundamental — uma trajetória educacional completa.</p>
+    <div class="niveis-grid">
+      <div class="nivel">
+        <span class="nivel-num">Nível 01</span>
+        <h3>Educação Infantil — Creche</h3>
+        <span class="nivel-faixa">0 a 3 anos</span>
+        <p>Cuidado integral na primeira infância, com foco em vínculo afetivo, estimulação cognitiva e desenvolvimento motor.</p>
+        <ul>
+          <li>Estimulação sensorial e motora</li>
+          <li>Rotina estruturada e acolhedora</li>
+          <li>Equipe especializada em 0 a 3 anos</li>
+          <li>Ambiente seguro e supervisionado</li>
+        </ul>
+      </div>
+      <div class="nivel">
+        <span class="nivel-num">Nível 02</span>
+        <h3>Educação Infantil — Pré-escola</h3>
+        <span class="nivel-faixa">4 a 5 anos</span>
+        <p>Preparação para a alfabetização com desenvolvimento da linguagem, socialização e atividades estruturadas.</p>
+        <ul>
+          <li>Pré-alfabetização e letramento</li>
+          <li>Desenvolvimento da autonomia</li>
+          <li>Atividades lúdicas e criativas</li>
+          <li>Preparação para o ensino fundamental</li>
+        </ul>
+      </div>
+      <div class="nivel">
+        <span class="nivel-num">Nível 03</span>
+        <h3>Ensino Fundamental</h3>
+        <span class="nivel-faixa">6 a 14 anos</span>
+        <p>Formação acadêmica completa com base curricular nacional e projetos que desenvolvem habilidades essenciais.</p>
+        <ul>
+          <li>Alfabetização e letramento</li>
+          <li>Português, Matemática e Ciências</li>
+          <li>História, Geografia e Artes</li>
+          <li>Projetos interdisciplinares</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section id="valores" class="sec sec-dark">
+  <div class="sec-inner">
+    <span class="sec-kicker">Princípios Institucionais</span>
+    <h2>Nossos Valores</h2>
+    <p class="sec-desc">Os pilares que orientam nossa prática educativa.</p>
+    <div class="valores-grid">
+      <div class="valor">
+        <span class="valor-icone">📚</span>
+        <h3>Excelência Pedagógica</h3>
+        <p>Compromisso com a qualidade do ensino em todos os níveis da educação básica.</p>
+      </div>
+      <div class="valor">
+        <span class="valor-icone">🤝</span>
+        <h3>Inclusão Social</h3>
+        <p>Respeito à diversidade e acesso igualitário à educação para todas as crianças.</p>
+      </div>
+      <div class="valor">
+        <span class="valor-icone">🏛️</span>
+        <h3>Transparência</h3>
+        <p>Regularidade jurídica, gestão responsável e alinhamento às políticas públicas.</p>
+      </div>
+      <div class="valor">
+        <span class="valor-icone">🌱</span>
+        <h3>Desenvolvimento Humano</h3>
+        <p>Formação integral: cognitiva, emocional, social e ética.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="sec">
+  <div class="sec-inner">
+    <span class="sec-kicker">Fale Conosco</span>
+    <h2>Contato</h2>
+    <div class="linha"></div>
+    <div class="contato-grid">
+      <div class="contato-card">
+        <span class="contato-r">Endereço</span>
+        <p>Rua Fortaleza, Nº 01, Quadra 07<br>Residência Mª Aragão I<br>CEP 65.057-887<br>São Luís – MA</p>
+      </div>
+      <div class="contato-card">
+        <span class="contato-r">Telefone</span>
+        <a href="tel:+5598981922642">(98) 98192-2642</a>
+      </div>
+      <div class="contato-card">
+        <span class="contato-r">E-mail</span>
+        <a href="/cdn-cgi/l/email-protection#fa9394898e938e8f8e959f9e8f839b928d9f929093889f92c8ccba9d979b9396d4999597"><span class="__cf_email__" data-cfemail="0a6364797e637e7f7e656f6e7f736b627d6f626063786f62383c4a6d676b636624696567">[email&#160;protected]</span></a>
+        <p class="contato-cnpj">CNPJ: 19.076.369/0001-06</p>
+      </div>
+      <div class="contato-card">
+        <span class="contato-r">Instagram</span>
+        <a href="https://instagram.com/yahwehjireh_edu" target="_blank" rel="noopener">@yahwehjireh_edu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img id="logo-footer" src="logo.png" alt="Logo">
+      <span>Instituto Educacional Yahweh Jireh</span>
+    </div>
+    <div class="footer-info">
+      <p>CNPJ 19.076.369/0001-06 · Situação Ativa · Associação Privada</p>
+      <p>Rua Fortaleza, Nº 01 · Residencial Maria Aragão · São Luís – MA</p>
+      <p>Fundado em 2014 · Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+
+const sections = document.querySelectorAll("section[id]");
+const links = document.querySelectorAll(".nav-links a");
+window.addEventListener("scroll
